@@ -14,9 +14,12 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             VStack{
-                NavigationLink(destination: UnitListView()) {
+                NavigationLink(destination:FeedView()) {
                     Text("Unit List View")
                 }.padding()
+                
+               
+                
                 
                 TabView(selection: $secilenSekme) {
                     FeedView()

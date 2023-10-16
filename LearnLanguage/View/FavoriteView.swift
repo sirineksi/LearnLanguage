@@ -10,7 +10,12 @@ import SwiftUI
 
 
 struct FavoriteView: View {
+    
+    
+    
     var body: some View {
-        Text("Favoriler")
-    }
+        
+       Text("Feed view")
+
+}
 }

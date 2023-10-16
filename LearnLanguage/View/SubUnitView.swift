@@ -1,23 +1,25 @@
 //
-//  FeedView.swift
+//  UnitView.swift
 //  LearnLanguage
 //
 //  Created by ceksi on 27.09.2023.
 //
 
+import Foundation
 import SwiftUI
 
-struct FeedView: View {
+struct SubUnitView: View {
     
-    @State var units: [Unit] = []
+    @State var unit: Unit
+    @State var subUnits: [FunSubUnit] = []
     
     var body: some View {
         VStack{
-            NavigationView{
-                List(units) { unit in
-                    NavigationLink(destination: SubUnitView (unit: unit)) {
+           
+                List (subUnits) { subUnit in
+                    NavigationLink(destination: QuestionView(subUnit: subUnit )) {
                         HStack {
-                            if let img = unit.icon.removingPrefix("data:image/png;base64,").imageFromBase64 {
+                            if let img = subUnit.icon.removingPrefix("data:image/png;base64,").imageFromBase64 {
                                 Image(uiImage: img)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
@@ -27,53 +29,46 @@ struct FeedView: View {
                             }
                              
                             VStack {
-                            Text(unit.name)
+                                Text(subUnit.name)
                                 .padding()
                                 .foregroundColor(.red)
                                 .font(.title2)
                             
-                                Text(unit.description)
+                                Text(subUnit.description)
                                 .padding()
                                 .foregroundColor(.black)
                                 .font(.title3)
                             }
                             
-                            Spacer() 
+                            Spacer()
                             // ?? öndeki değerin boş olup olmadığını kontrol eder ve default değer verir.
-                            if unit.premium ?? false {
+                           
                             Image("openlock")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 32, height: 32)
                             
-                            }else {
-                                Image("closelock")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 32, height: 32)
-                            }
+                           
                         }
                     }
                     
                 }
                 .listStyle(PlainListStyle())
                 .navigationBarTitle("Unit List", displayMode: .inline)
-            }
             
             
-                .onAppear{
-                    APIManager().fetchUnits { fetchedUnit in
-                        self.units = fetchedUnit
-                        
-                    }
-                    
+            .onAppear {
+                APIManager().fetchFunSubUnits(unitId: unit.id, completion: { fetchedSubUnit in
+                    self.subUnits = fetchedSubUnit.funSubUnits
+                })
                 }
+            
+               
         }
         .edgesIgnoringSafeArea(.bottom)
     }
 }
 
 
-
-
-
+        
+    

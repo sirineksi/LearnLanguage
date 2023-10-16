@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2344B3762AC6F078007E0CFA /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344B3752AC6F078007E0CFA /* QuestionView.swift */; };
 		23F1D4622AC41E5B0083B5CC /* LearnLanguageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F1D4612AC41E5B0083B5CC /* LearnLanguageApp.swift */; };
 		23F1D4642AC41E5B0083B5CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F1D4632AC41E5B0083B5CC /* ContentView.swift */; };
 		23F1D4662AC41E5E0083B5CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F1D4652AC41E5E0083B5CC /* Assets.xcassets */; };
@@ -17,11 +18,12 @@
 		23F1D4782AC42FEE0083B5CC /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F1D4772AC42FEE0083B5CC /* Helper.swift */; };
 		23F1D47B2AC432550083B5CC /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F1D47A2AC432550083B5CC /* APIManager.swift */; };
 		23F1D47E2AC432C70083B5CC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F1D47D2AC432C70083B5CC /* Model.swift */; };
-		23F1D4812AC436F10083B5CC /* UnitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F1D4802AC436F10083B5CC /* UnitListView.swift */; };
-		23F1D4832AC4378A0083B5CC /* UnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F1D4822AC4378A0083B5CC /* UnitView.swift */; };
+		23F1D4832AC4378A0083B5CC /* SubUnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F1D4822AC4378A0083B5CC /* SubUnitView.swift */; };
+		23F1D4862AC59D4C0083B5CC /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F1D4852AC59D4C0083B5CC /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2344B3752AC6F078007E0CFA /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		23F1D45E2AC41E5B0083B5CC /* LearnLanguage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnLanguage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F1D4612AC41E5B0083B5CC /* LearnLanguageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnLanguageApp.swift; sourceTree = "<group>"; };
 		23F1D4632AC41E5B0083B5CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,9 +35,9 @@
 		23F1D4772AC42FEE0083B5CC /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		23F1D47A2AC432550083B5CC /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		23F1D47D2AC432C70083B5CC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		23F1D4802AC436F10083B5CC /* UnitListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitListView.swift; sourceTree = "<group>"; };
-		23F1D4822AC4378A0083B5CC /* UnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitView.swift; sourceTree = "<group>"; };
+		23F1D4822AC4378A0083B5CC /* SubUnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubUnitView.swift; sourceTree = "<group>"; };
 		23F1D4842AC441A80083B5CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		23F1D4852AC59D4C0083B5CC /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +98,8 @@
 				23F1D4632AC41E5B0083B5CC /* ContentView.swift */,
 				23F1D4722AC422270083B5CC /* FeedView.swift */,
 				23F1D4742AC42D4F0083B5CC /* SettingsView.swift */,
-				23F1D4822AC4378A0083B5CC /* UnitView.swift */,
+				23F1D4822AC4378A0083B5CC /* SubUnitView.swift */,
+				2344B3752AC6F078007E0CFA /* QuestionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -105,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				23F1D4772AC42FEE0083B5CC /* Helper.swift */,
+				23F1D4852AC59D4C0083B5CC /* Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -128,7 +132,6 @@
 		23F1D47F2AC436DE0083B5CC /* List */ = {
 			isa = PBXGroup;
 			children = (
-				23F1D4802AC436F10083B5CC /* UnitListView.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -205,11 +208,12 @@
 			files = (
 				23F1D4752AC42D4F0083B5CC /* SettingsView.swift in Sources */,
 				23F1D4732AC422270083B5CC /* FeedView.swift in Sources */,
-				23F1D4832AC4378A0083B5CC /* UnitView.swift in Sources */,
-				23F1D4812AC436F10083B5CC /* UnitListView.swift in Sources */,
+				23F1D4832AC4378A0083B5CC /* SubUnitView.swift in Sources */,
 				23F1D4642AC41E5B0083B5CC /* ContentView.swift in Sources */,
 				23F1D4712AC420FC0083B5CC /* FavoriteView.swift in Sources */,
+				23F1D4862AC59D4C0083B5CC /* Extension.swift in Sources */,
 				23F1D4622AC41E5B0083B5CC /* LearnLanguageApp.swift in Sources */,
+				2344B3762AC6F078007E0CFA /* QuestionView.swift in Sources */,
 				23F1D4782AC42FEE0083B5CC /* Helper.swift in Sources */,
 				23F1D47B2AC432550083B5CC /* APIManager.swift in Sources */,
 				23F1D47E2AC432C70083B5CC /* Model.swift in Sources */,
@@ -338,6 +342,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LearnLanguage/Preview Content\"";
@@ -345,6 +350,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LearnLanguage/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "ingilizce quiz";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -355,8 +361,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lerarn.language.LearnLanguage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lerarn.english.quiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -368,6 +375,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LearnLanguage/Preview Content\"";
@@ -375,6 +383,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LearnLanguage/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "ingilizce quiz";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -385,8 +394,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lerarn.language.LearnLanguage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lerarn.english.quiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
