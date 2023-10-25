@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ScoreView: View {
   
-
     @AppStorage("highScore") private var dogruSayisi = 0
     @AppStorage("mistakes") private var yanlisSayisi = 0
     @AppStorage("UnitName") private var uniteAdi = ""
@@ -17,19 +16,16 @@ struct ScoreView: View {
     var body: some View {
         VStack {
             
-            
             Image("highscore")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 170, height: 170)
                 .padding(.bottom, 50)
             
-         
-            
             Text(" Ünite Adı: \(uniteAdi) ")
                 .font(.title2)
                 .padding()
-            Text("Score: \(dogruSayisi) / \(yanlisSayisi) ")
+            Text("Doğru: \(dogruSayisi) Yanlış: \(yanlisSayisi) ")
                 .padding(.bottom, 50)
                 .font(.title2)
             
@@ -45,4 +41,3 @@ struct ScoreView: View {
 
         }
     }
-

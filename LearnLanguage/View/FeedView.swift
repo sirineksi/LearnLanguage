@@ -23,16 +23,18 @@ struct FeedView: View {
                             Image(uiImage: img)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 64, height: 64)
+                                .frame(width: 80, height: 80)
                         } else {
                             Text("görüntü yüklenemedi")
                         }
                         
-                        VStack {
+                        VStack (alignment: .leading) {
                             Text(unit.name)
                                 .padding()
                                 .foregroundColor(Color(UIColor(hex: 0xEB5353)))
                                 .font(.title2)
+                                
+                               
                             
                             Text(unit.description)
                                 .padding()
@@ -59,7 +61,7 @@ struct FeedView: View {
                 
             }
             .listStyle(PlainListStyle())
-            .navigationBarTitle("Unit List", displayMode: .inline)
+            .navigationBarTitle("Categories", displayMode: .inline)
             
             
             

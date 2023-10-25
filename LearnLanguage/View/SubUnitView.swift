@@ -25,12 +25,12 @@ struct SubUnitView: View {
                             Image(uiImage: img)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 64, height: 64)
+                                .frame(width: 80, height: 80)
                         } else {
                             Text("görüntü yüklenemedi")
                         }
                         
-                        VStack {
+                        VStack (alignment: .leading) {
                             Text(subUnit.name)
                                 .padding()
                                 .foregroundColor(Color(UIColor(hex: 0xEB5353)))

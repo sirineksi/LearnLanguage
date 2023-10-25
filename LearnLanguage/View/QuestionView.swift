@@ -14,10 +14,6 @@ struct QuestionView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var isSoundOn: Bool = UserDefaults.standard.bool(forKey: "isSoundOn")
     
-    
-    
-    
-    
     @State private var currentQuestionIndex = 0
     @State private var score = 0
     @State private var showAlert = false
@@ -173,18 +169,17 @@ struct QuestionView: View {
         print("seçilen soru: \(shuffledWords[optionIndex].sentence) ")
         print("seçilen cevab: \(shuffledWords[optionIndex].en) ")
         
-        if isSoundOn {
-            if shuffledWords[optionIndex].en == words[currentQuestionIndex].en {
+        if shuffledWords[optionIndex].en == words[currentQuestionIndex].en {
+            score = score + 1
+            if isSoundOn {
                 player?.play()
-            } else {
-                playerFail?.play()
-                print("Hata sesi çal")
             }
         } else {
-            
-            print("Ses kapalı, hata sesini çalma")
+            if isSoundOn {
+                playerFail?.play()
+            }
+            print("Hata sesi çal")
         }
-        
         
         selectedAnswerIndex = optionIndex
         
