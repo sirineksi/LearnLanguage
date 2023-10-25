@@ -11,11 +11,11 @@ import SwiftUI
 
 func getColor(tabIndex: Int ) ->  Color {
     if tabIndex == 0 {
-        return Color.blue
+        return (Color(UIColor(hex: 0x187498)))
         
     }
     else if tabIndex == 1 {
-        return Color.red
+        return (Color(UIColor(hex: 0xEB5353)))
     }
     
     else if tabIndex == 2 {

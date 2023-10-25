@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import Foundation
 
 @main
 struct LearnLanguageApp: App {
+  
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
     }
+
 }
+
