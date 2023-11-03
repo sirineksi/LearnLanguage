@@ -9,7 +9,6 @@ import SwiftUI
 import Foundation
 import AVFoundation
 
-
 struct QuestionView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var isSoundOn: Bool = UserDefaults.standard.bool(forKey: "isSoundOn")
@@ -38,11 +37,27 @@ struct QuestionView: View {
             if isLoading {
                 ProgressView("Loading...")
             }else {
+                
+              
                 //kaçıncı soru olduğu
                 Text("Question \(currentQuestionIndex + 1) of \(words.count)")
+           
                 if currentQuestionIndex >= 0 && currentQuestionIndex < words.count {
                     
-                    //soru
+                    if let img = words[currentQuestionIndex].image?.removingPrefix("data:image/png;base64,").imageFromBase64  {
+                        
+                                            Image(uiImage: img)
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 150, height: 150)
+                                                .padding(.bottom, 2)
+                                                .padding(.top, 5)
+                                        } else {
+                                            Text("Görüntü yüklenemedi")
+                                        }
+                      
+                    
+                 //soru
                     Text(words[currentQuestionIndex].sentenceBlank ?? "")
                         .font(.title)
                         .padding()
@@ -115,6 +130,7 @@ struct QuestionView: View {
             
             APIManager().fetchFunQuestions(subUnitId: subUnit.id, completion: { fetchFunQuestion in
                 self.words = fetchFunQuestion.data.words ?? []
+                print(self.words)
                 self.shuffledWords = self.words
                 isLoading = false
                 

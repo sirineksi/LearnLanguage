@@ -25,21 +25,23 @@ struct SubUnitView: View {
                             Image(uiImage: img)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 80, height: 80)
+                                .frame(width: 70, height: 70)
+                                .padding(.bottom, 10)
+                                .padding(.top, 10)
+
                         } else {
                             Text("görüntü yüklenemedi")
                         }
                         
                         VStack (alignment: .leading) {
                             Text(subUnit.name)
-                                .padding()
                                 .foregroundColor(Color(UIColor(hex: 0xEB5353)))
-                                .font(.title2)
-                            
-                            Text(subUnit.description)
-                                .padding()
-                                .foregroundColor(.black)
-                                .font(.title3)
+                                .font(.body)
+                                .fontWeight(.bold)
+                                .padding(.bottom, 3)
+                           Text(subUnit.description)
+                               .foregroundColor(Color(UIColor(hex: 0xB4B4B3)))
+                               .font(.callout)
                         }
                         
                         Spacer()
@@ -49,6 +51,7 @@ struct SubUnitView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 32, height: 32)
+                            
                         
                         
                     }
@@ -56,7 +59,7 @@ struct SubUnitView: View {
                 
             }
             .listStyle(PlainListStyle())
-            .navigationBarTitle("Unit List", displayMode: .inline)
+            .navigationBarTitle("Units", displayMode: .inline)
             
             
             .onAppear {

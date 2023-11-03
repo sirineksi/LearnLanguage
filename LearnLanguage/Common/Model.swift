@@ -101,6 +101,7 @@ struct Word: Codable,  Identifiable{
     let image: String?
     let active: Bool?
     let platformId: Int?
+    
    
 }
 

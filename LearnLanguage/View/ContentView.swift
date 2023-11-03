@@ -10,7 +10,9 @@ import Foundation
 
 
 struct ContentView: View {
-    
+    @AppStorage("darkModeEnabled") private var darkModeEnabled = false
+
+
     init() {
         
         let appearance = UINavigationBarAppearance()
@@ -23,13 +25,16 @@ struct ContentView: View {
         
     }
  
-    @State private var secilenSekme = 0
+
+    
+    @State public var secilenSekme = 0
     
     var body: some View {
-        NavigationView{
+      
             VStack{
                 
                 TabView(selection: $secilenSekme) {
+                   
                     FeedView()
                         .tabItem{
                             Image("home-button1")
@@ -38,7 +43,7 @@ struct ContentView: View {
                         }
                         .tag(0)
                     
-                    ScoreView()
+                    ScoreView(selectedTab: $secilenSekme)
                         .tabItem {
                             Image("star")
                                 .resizable()
@@ -49,7 +54,7 @@ struct ContentView: View {
                         }
                         .tag(1)
                     
-                    SettingView()
+                    SettingView(selectedTab: $secilenSekme)
                         .tabItem {
                             Image("settings")
                             Text("Ayarlar")
@@ -58,8 +63,9 @@ struct ContentView: View {
                 }
                 .accentColor(getColor(tabIndex: secilenSekme))
                 
-            }
-        }
+                
+            
+            }.preferredColorScheme(darkModeEnabled ? .dark : .light)
     }
 }
 struct ContentView_Previews: PreviewProvider {

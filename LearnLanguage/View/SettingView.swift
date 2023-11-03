@@ -12,19 +12,32 @@ struct SettingView: View {
     
     @State private var isSoundOn: Bool = UserDefaults.standard.bool(forKey: "isSoundOn")
     @State private var showAlert = false
+    @State private var isButtonTapped = false
+    @Binding var selectedTab: Int
+    @AppStorage("darkModeEnabled") private var darkModeEnabled = false
 
 
 
     var body: some View {
+        NavigationView {
         VStack {
            
             Toggle("Ses Aç / Kapat", isOn: $isSoundOn)
-                            .font(.title3)
+                      .font(.body)
                             .padding(.top, 20)
                             .padding(.horizontal, 20)
                             .onChange(of: isSoundOn) { newValue in
-                              UserDefaults.standard.set(newValue, forKey: "isSoundOn")
+                            UserDefaults.standard.set(newValue, forKey: "isSoundOn")
                             }
+            
+            Toggle("Dark Mode Aç / Kapat", isOn: $darkModeEnabled)
+                      .font(.body)
+                            .padding(.top, 20)
+                            .padding(.horizontal, 20)
+                            .onChange(of: darkModeEnabled) { newValue in
+                            UserDefaults.standard.set(newValue, forKey: "darkModeEnabled")
+                            }
+            
             Spacer()
             
             Button("Highscore Sıfırla") {
@@ -50,13 +63,19 @@ struct SettingView: View {
                                   }
             
             
-             NavigationLink("Oyuna Başla", destination: ContentView()) // Başlatma butonu ve yönlendirme
-                .font(.title3)
-                .padding()
-                .background(Color(UIColor(hex: 0x187498))) // Arka plan rengi
-                .foregroundColor(.white)// Metin rengi
-                .cornerRadius(10) // Kenar yuvarlatma
+            Button("Oyuna Başla !") {
+                            isButtonTapped = true
+                            selectedTab = 0
+                        }
+            .font(.title3)
+            .padding()
+            .background(Color(UIColor(hex: 0x187498))) // Arka plan rengi
+            .foregroundColor(.white)// Metin rengi
+            .cornerRadius(10) // Kenar yuvarlatma
         }
-        .padding(.bottom, 100)
+        .listStyle(PlainListStyle())
+                   .navigationBarTitle("Ayarlar", displayMode: .inline)
+                   .padding(.bottom, 100)
     }
+}
 }
